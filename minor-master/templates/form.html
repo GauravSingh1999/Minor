@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Upload new File</title>
+<h1>Upload new File</h1>
+<form id="upload" method=GET  enctype=multipart/form-data>
+    <select id="fileSelection">
+        {% for i in data %}
+        <option>{{  i }}</option>
+        {% endfor %}
+
+    </select>
+    <input type=submit value=Upload>
+</form>
+<script>
+    document.getElementById('upload').addEventListener('submit' ,(e) => {
+        e.preventDefault();
+        var selectedFile  = document.getElementById('fileSelection').value
+        location.href = `/uploads/${selectedFile}`
+    })
+</script>
